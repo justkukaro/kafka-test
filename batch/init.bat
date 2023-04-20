@@ -1,5 +1,5 @@
 ::rem window batch
 
-::rem run myubuntu instance
-docker build -t myubuntu ./myubuntu/
-docker-compose -f ./myubuntu/docker-compose.yml up -d
+::rem run mykafka instance
+docker build -t mykafka ./mykafka/
+docker-compose -f ./mykafka/docker-compose.yml up -d

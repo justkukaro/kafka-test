@@ -1,11 +1,10 @@
 FROM ubuntu:latest
-MAINTAINER kukaro <justkukaro@naver.com>
 RUN apt-get update
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 
 #set inv
-ENV KAFKA_VER 2.3.0
+ENV KAFKA_VER 3.4.0
 ENV HOME /root
 
 #set password
@@ -42,8 +41,9 @@ ADD ./.vimrc ${HOME}/
 
 #install kafka
 RUN apt-get install -y tar
-RUN apt-get install -y openjdk-8-jdk
-RUN cd ${HOME} && wget http://apache.mirror.cdnetworks.com/kafka/${KAFKA_VER}/kafka_2.12-${KAFKA_VER}.tgz
+RUN apt-get install -y openjdk-11-jdk
+#RUN cd ${HOME} && wget http://apache.mirror.cdnetworks.com/kafka/${KAFKA_VER}/kafka_2.12-${KAFKA_VER}.tgz
+RUN cd ${HOME} && wget https://downloads.apache.org/kafka/${KAFKA_VER}/kafka_2.12-${KAFKA_VER}.tgz
 RUN cd ${HOME} && tar -xzf kafka_2.12-${KAFKA_VER}.tgz
 RUN cd ${HOME} && rm kafka_2.12-${KAFKA_VER}.tgz
 RUN cd ${HOME} && mv kafka_2.12-${KAFKA_VER} kafka

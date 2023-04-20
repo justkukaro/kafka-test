@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec -it myubuntu /bin/bash
+docker exec -it mykafka /bin/bash
